@@ -1,5 +1,8 @@
 ## ChotuRoboServer
-ChotuRoboServer is a Java-based implementation of the Model Integration Protocol (MIP) using the Neurocaster Server. This server facilitates the conversion of existing Java services, methods, and classes into tools that can be integrated with AI systems through simple JSON-RPC calls. It aims to make it easier to integrate existing code into AI workflows without writing new services from scratch.
+ChotuRoboServer is a Java-based implementation of the Model Integration Protocol (MIP) using the Neurocaster Server. This server facilitates the conversion of existing Java services, methods, and classes into tools that can be integrated with AI systems through simple JSON-RPC calls. It aims to make it easier to integrate existing code into AI workflows without writing new services from scratch.  
+
+Read the full documentation [here](https://medium.com/@visrow/model-context-protocol-alternative-spring-and-java-ai-tools-integration-10357d798f09)
+
 
 ## Features
 Full Java Integration: ChotuRoboServer is written in 100% Java, making it easy to integrate with existing Java applications and services.
