@@ -3,6 +3,9 @@ ChotuRoboServer is a Java-based implementation of the Model Integration Protocol
 
 Read the full documentation [here](https://medium.com/@visrow/model-context-protocol-alternative-spring-and-java-ai-tools-integration-10357d798f09)
 
+### Screenshots
+Connect to a server and start chatting with the AI:  
+![Connect](screen.png)
 
 ## Features
 Full Java Integration: ChotuRoboServer is written in 100% Java, making it easy to integrate with existing Java applications and services.
