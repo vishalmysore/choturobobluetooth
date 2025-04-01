@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-@RestController
+@RestController("/choturobo/sse")
 public class SimpleMCPServerSSE {
 
     // Store PrintWriters by session ID

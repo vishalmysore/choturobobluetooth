@@ -11,10 +11,10 @@ import javax.microedition.io.Connector;
 import javax.microedition.io.StreamConnection;
 import java.io.*;
 
-@RestController
+@RestController("/choturobo/bluetooth")
 public class BluetoothAudioController {
 
-    private static final String AUDIO_FILE_PATH = "C:\\work\\choturobo\\speech.mp3"; // Path to the MP3 file
+    private static final String AUDIO_FILE_PATH = "C:\\temp\\choturobo\\speech.mp3"; // Path to the MP3 file
     private static final String BLUETOOTH_DEVICE_NAME = "speaker name"; // Change to your Bluetooth speaker's name
 
     @GetMapping("/send-audio")

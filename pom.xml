@@ -37,6 +37,11 @@
             <version>1.9.5-1</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
             <groupId>com.googlecode.soundlibs</groupId>
             <artifactId>vorbisspi</artifactId>
             <version>1.0.3-1</version>
@@ -75,7 +80,7 @@
         <dependency>
             <groupId>io.github.vishalmysore</groupId>
             <artifactId>neurocaster-server</artifactId>
-            <version>0.0.2</version>
+            <version>0.0.3</version>
         </dependency>
 
 

@@ -18,7 +18,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import static javax.sound.sampled.AudioSystem.getAudioInputStream;
 import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
-@RestController
+@RestController("/choturobo")
 public class LocalBlueToothController {
     private static final String AUDIO_FILE_PATH = "C:/temp/speech.mp3";
     private static final String SONG_FILE_PATH = "C:/temp/bolly1.mp3";
