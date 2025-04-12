@@ -37,27 +37,37 @@ public class SseListenerService {
     }
 
     public void listenToSse(String sseUrl) throws IOException {
-        try (CloseableHttpClient client = HttpClients.createDefault()) {
-            HttpGet httpGet = new HttpGet(sseUrl);
-            httpGet.setHeader("Accept", "text/event-stream");
+        while (true) {  // Keep trying to listen indefinitely
+            try (CloseableHttpClient client = HttpClients.createDefault()) {
+                HttpGet httpGet = new HttpGet(sseUrl);
+                httpGet.setHeader("Accept", "text/event-stream");
 
-            try (CloseableHttpResponse response = client.execute(httpGet)) {
-                HttpEntity entity = response.getEntity();
+                try (CloseableHttpResponse response = client.execute(httpGet)) {
+                    HttpEntity entity = response.getEntity();
 
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()))) {
-                    String line;
-                    while (true) {
-                        line = reader.readLine();
-                        if (line == null) {
-                            log.info("Server closed the connection. Reconnecting...");
-                            break;
-                        }
+                    try (BufferedReader reader = new BufferedReader(new InputStreamReader(entity.getContent()))) {
+                        String line;
+                        while (true) {
+                            line = reader.readLine();
+                            if (line == null) {
+                                log.info("Server closed the connection. Reconnecting...");
+                                break;  // Exit the inner while loop to reconnect
+                            }
 
-                        if (!line.trim().isEmpty()) {
-                            log.info("Received SSE event: " + line);
-                            handleSensorData(line);
+                            if (!line.trim().isEmpty()) {
+                                log.info("Received SSE event: " + line);
+                                handleSensorData(line);
+                            }
                         }
                     }
+                }
+            } catch (IOException e) {
+                log.error("Error while listening to SSE stream, retrying...", e);
+                try {
+                    // Adding a small delay before reconnecting to avoid excessive retries
+                    Thread.sleep(5000);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
                 }
             }
         }
